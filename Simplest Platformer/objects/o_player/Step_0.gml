@@ -20,6 +20,7 @@ else if(vspeed > 0) // if there IS a wall below and we are going down
 }
 else if(vspeed == 0) // if there IS a wall below and we are not moving vertically
 {
+	// check for jump button (W as in WASD or up arrow)
 	if(keyboard_check(ord("W")) || keyboard_check(vk_up))
 	{
 		// only allow if there is no wall above
@@ -45,20 +46,6 @@ if(vspeed < 0)
 	}
 }
 
-// for jumping - check if we are on the ground ("wall below is not noone")
-/*if(wall_below != noone)
-{
-	// check for jump button (W as in WASD or up arrow)
-	if(keyboard_check(ord("W")) || keyboard_check(vk_up))
-	{
-		// only allow if there is no wall above
-		if(wall_above == noone)
-		{
-			// set vertical speed to jump
-			vspeed = -16;
-		}
-	}
-}*/
 
 // *** HORIZONTAL CODE ***
 
