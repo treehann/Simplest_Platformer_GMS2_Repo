@@ -10,8 +10,10 @@ var bbox_height = bbox_bottom - bbox_top;
 var bbox_width = bbox_right - bbox_left;
 
 // get variables representing a wall below and above (or noone if there is no wall)
-var wall_below = instance_place(x-hoffset, y+1-voffset, o_wall);
-var wall_above = instance_place(x-hoffset, y-1-voffset, o_wall);
+//var wall_below = instance_place(x-hoffset, y+1-voffset, o_wall);
+//var wall_above = instance_place(x-hoffset, y-1-voffset, o_wall);
+var wall_below = instance_place(x, y+1, o_wall);
+var wall_above = instance_place(x, y-1, o_wall);
 
 // if there is no wall below
 if(wall_below == noone)
@@ -42,6 +44,10 @@ else if(vspeed == 0) // if there IS a wall below and we are not moving verticall
 			
 			//show_message("jump");
 		}
+		else
+		{
+			show_message("there is a wall above, cannot jump");	
+		}
 	}
 }
 
@@ -68,7 +74,8 @@ if(vspeed < 0)
 if(keyboard_check(ord("D")) || keyboard_check(vk_right))
 {
 	// get a variable representing a wall to the right (or noone if there is no wall)
-	var wall_right = instance_place(x+1-hoffset, y-voffset, o_wall);
+	//var wall_right = instance_place(x+1-hoffset, y-voffset, o_wall);
+	var wall_right = instance_place(x+1, y, o_wall);
 	
 	// if there is no wall to the right
 	if(wall_right == noone)
@@ -88,7 +95,8 @@ if(keyboard_check(ord("D")) || keyboard_check(vk_right))
 else if(keyboard_check(ord("A")) || keyboard_check(vk_left))  // left key pressed (A as in WASD or left arrow)
 {
 	// get a variable representing a wall to the left (or noone if there is no wall)
-	var wall_left = instance_place(x-1-hoffset, y-voffset, o_wall);
+	//var wall_left = instance_place(x-1-hoffset, y-voffset, o_wall);
+	var wall_left = instance_place(x-1, y, o_wall);
 	
 	// if there is no wall to the left
 	if(wall_left == noone)
